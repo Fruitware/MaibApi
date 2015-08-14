@@ -29,13 +29,13 @@ class MaibDecription extends Description {
 							'type'     => 'string',
 							'location' => 'postField',
 							'required' => true,
-//							'max'       => 12,
+							'max'       => 12,
 						],
 						'currency'       => [
 							'type'     => 'string',
 							'location' => 'postField',
 							'required' => true,
-//							'max'       => 3,
+							'max'       => 3,
 						],
 						'client_ip_addr' => [
 							'type'     => 'string',
@@ -54,6 +54,12 @@ class MaibDecription extends Description {
 							'location' => 'postField',
 							'required' => false,
 							'max'      => 32,
+						],
+						'msg_type'    => [
+							'type'     => 'string',
+							'location' => 'postField',
+							'required' => false,
+							'max'      => 3,
 						],
 					]
 				],
@@ -99,6 +105,12 @@ class MaibDecription extends Description {
 							'required' => false,
 							'max'      => 32,
 						],
+						'msg_type'    => [
+							'type'     => 'string',
+							'location' => 'postField',
+							'required' => false,
+							'max'      => 3,
+						],
 					]
 				],
 				'makeDMSTrans'             => [
@@ -112,7 +124,7 @@ class MaibDecription extends Description {
 							'location' => 'postField',
 							'required' => true,
 						],
-						'auth_id'        => [
+						'trans_id'        => [
 							'type'     => 'string',
 							'location' => 'postField',
 							'required' => true,
@@ -147,6 +159,12 @@ class MaibDecription extends Description {
 							'location' => 'postField',
 							'required' => false,
 							'max'      => 32,
+						],
+						'msg_type'    => [
+							'type'     => 'string',
+							'location' => 'postField',
+							'required' => false,
+							'max'      => 3,
 						],
 					]
 				],
