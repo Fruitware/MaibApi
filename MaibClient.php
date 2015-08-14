@@ -66,8 +66,8 @@ class MaibClient extends GuzzleClient
 
 	/**
 	 * Registering transactions
-	 * @param  string $amount
-	 * @param  string $currency
+	 * @param  float $amount
+	 * @param  int $currency
 	 * @param  string $clientIpAddr
 	 * @param  string $description
 	 * @param  string $language
@@ -80,9 +80,9 @@ class MaibClient extends GuzzleClient
 	{
 		$args = [
 			'command'  => 'v',
-			'amount' => $amount,
+			'amount' => (string)($amount * 100),
 			'msg_type' => 'SMS',
-			'currency' => $currency,
+			'currency' => (string)$currency,
 			'client_ip_addr' => $clientIpAddr,
 			'description' => $description,
 			'language' => $language
@@ -93,8 +93,8 @@ class MaibClient extends GuzzleClient
 
 	/**
 	 * Registering DMS authorization
-	 * 	 * @param  string $amount
-	 * 	 * @param  string $currency
+	 * 	 * @param  float $amount
+	 * 	 * @param  int $currency
 	 * 	 * @param  string $clientIpAddr
 	 * 	 * @param  string $description
 	 * 	 * @param  string $language
@@ -107,8 +107,9 @@ class MaibClient extends GuzzleClient
 	{
 		$args = [
 			'command'  => 'a',
-			'amount' => $amount,
-			'currency' => $currency,
+			'amount' => (string)($amount * 100),
+			'currency' => (string)$currency,
+			'msg_type' => 'DMS',
 			'client_ip_addr' => $clientIpAddr,
 			'description' => $description,
 			'language' => $language
@@ -120,8 +121,8 @@ class MaibClient extends GuzzleClient
 	/**
 	 * Executing a DMS transaction
 	 * @param  string $authId
-	 * @param  string $amount
-	 * @param  string $currency
+	 * @param  float $amount
+	 * @param  int $currency
 	 * @param  string $clientIpAddr
 	 * @param  string $description
 	 * @param  string $language
@@ -137,10 +138,11 @@ class MaibClient extends GuzzleClient
 
 		$args = [
 			'command'  => 't',
-			'auth_id' => $authId,
-			'amount' => $amount,
-			'currency' => $currency,
+			'trans_id' => $authId,
+			'amount' => (string)($amount * 100),
+			'currency' => (string)$currency,
 			'client_ip_addr' => $clientIpAddr,
+			'msg_type' => 'DMS',
 			'description' => $description,
 			'language' => $language
 		];
