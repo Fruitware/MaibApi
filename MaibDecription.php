@@ -4,7 +4,7 @@ namespace Fruitware\MaibApi;
 
 use GuzzleHttp\Command\Guzzle\Description;
 
-class MaibDecription extends Description {
+class MaibDescription extends Description {
 	/**
 	 * @param array $options Custom options to apply to the description
 	 *     - formatter: Can provide a custom SchemaFormatter class
