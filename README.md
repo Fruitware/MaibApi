@@ -14,7 +14,7 @@ namespace MyProject;
 require_once(__DIR__ . '/vendor/autoload.php');
 
 use Fruitware\MaibApi\MaibClient;
-use Fruitware\MaibApi\MaibDecription;
+use Fruitware\MaibApi\MaibDescription;
 use GuzzleHttp\Client;
 use GuzzleHttp\Subscriber\Log\Formatter;
 use GuzzleHttp\Subscriber\Log\LogSubscriber;
@@ -41,14 +41,13 @@ $options = [
 
 // init Client
 $guzzleClient = new Client($options);
-$guzzleDescription = new MaibDecription();
 
 // create a log for client class, if you want (monolog/monolog required)
 $log = new Logger('maib_guzzle_request');
 $log->pushHandler(new StreamHandler(__DIR__.'/logs/maib_guzzle_request.log', Logger::DEBUG));
 $subscriber = new LogSubscriber($log, Formatter::SHORT);
 
-$client = new MaibClient($guzzleClient, $guzzleDescription);
+$client = new MaibClient($guzzleClient);
 $client->getHttpClient()->getEmitter()->attach($subscriber);
 // examples
 
