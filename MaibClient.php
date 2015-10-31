@@ -4,7 +4,6 @@ namespace Fruitware\MaibApi;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Command\Guzzle\Description;
 use GuzzleHttp\Command\Guzzle\DescriptionInterface;
 use GuzzleHttp\Command\Guzzle\GuzzleClient;
 use GuzzleHttp\Event\CompleteEvent;
@@ -22,7 +21,7 @@ class MaibClient extends GuzzleClient
 	public function __construct(ClientInterface $client = null, DescriptionInterface $description = null, array $config = [])
 	{
 		$client = $client instanceof ClientInterface ? $client : new Client();
-		$description = $description instanceof DescriptionInterface ? $description : new Description();
+		$description = $description instanceof DescriptionInterface ? $description : new MaibDescription();
 		parent::__construct($client, $description, $config);
 
 		$cachedResponse = new Response(200);
