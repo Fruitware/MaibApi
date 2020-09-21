@@ -22,21 +22,17 @@ use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 
 //set options
+#http://docs.guzzlephp.org/en/stable/request-options.html
+#https://www.php.net/manual/en/function.curl-setopt.php
 $options = [
 	'base_url' => 'https://ecomm.maib.md:4455',
 	'debug'  => true,
 	'verify' => true,
 	'defaults' => [
 		'verify' => true,
-		'cert'    => [__DIR__.'/cert/pcert.pem', 'Pem_pass'],
-		'ssl_key' => __DIR__.'/cert/key.pem',
-		'config'  => [
-			'curl'  =>  [
-				CURLOPT_SSL_VERIFYHOST => true,
-				CURLOPT_SSL_VERIFYPEER => true,
-			]
-		]
-	],
+		'cert'    => __DIR__.'/cert/pcert.pem',
+		'ssl_key' => [__DIR__.'/cert/key.pem', 'SSL_KEY_PASSWORD']
+	]
 ];
 
 // init Client
