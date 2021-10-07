@@ -1,6 +1,6 @@
 <?php
 
-namespace Fruitware\MaibApi;
+namespace OlegMelnic\MaibApi;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
