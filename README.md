@@ -13,8 +13,8 @@ composer require oleg-melnic/maib-api
 namespace MyProject;
 require_once(__DIR__ . '/vendor/autoload.php');
 
-use Fruitware\MaibApi\MaibClient;
-use Fruitware\MaibApi\MaibDescription;
+use OlegMelnic\MaibApi\MaibClient;
+use OlegMelnic\MaibApi\MaibDescription;
 use GuzzleHttp\Client;
 use GuzzleHttp\Subscriber\Log\Formatter;
 use GuzzleHttp\Subscriber\Log\LogSubscriber;
